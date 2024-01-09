@@ -4,3 +4,4 @@ from .views import WineViewSet
 
 wine_router = routers.DefaultRouter()
 wine_router.register(r'wines', WineViewSet)
+

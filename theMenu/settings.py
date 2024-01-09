@@ -36,7 +36,6 @@ CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts.apps.AccountsConfig',
     'inventories.apps.InventoriesConfig',
     'wines.apps.WinesConfig',
     'django.contrib.admin',
@@ -49,6 +48,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 ]
+LOGIN_URL = '/login'
+AUTH_USER_MODEL = 'users.CutomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

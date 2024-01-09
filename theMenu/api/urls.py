@@ -6,6 +6,7 @@ router = routers.DefaultRouter()
 
 router.registry.extend(wine_router.registry)
 
+
 urlpatterns = [
     path('', include(router.urls))
 ]
