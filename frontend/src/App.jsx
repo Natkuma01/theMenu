@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
+import Landing from "./components/Landing"
 
+import './App.css'
 
-function App() {
+const App = () => {
 
-    useEffect(()=> {
-      console.log(import.meta.env.VITE_API_URL)
-    }, [])
+    // useEffect(()=> {
+    //   console.log(import.meta.env.VITE_API_URL)
+    // }, [])
   return (
     <>
-      
+      <Landing />
     </>
   )
 }
