@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('wines/', include('wines.urls')),
     path('auth/', obtain_auth_token),
+    path('restaurant/', include('restaurant.urls')),
 ]
