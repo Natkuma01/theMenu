@@ -44,12 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
     'rest_framework',
     'corsheaders',
 ]
-LOGIN_URL = '/login'
-AUTH_USER_MODEL = 'users.CutomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
