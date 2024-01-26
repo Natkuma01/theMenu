@@ -4,7 +4,7 @@ from django.db import models
 class Wine(models.Model):
     bin = models.IntegerField()
     type = models.CharField(max_length=10, null=True)
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=100)
     grape = models.CharField(max_length=100)
     region = models.CharField(max_length=30)
     year = models.CharField(max_length=20)
@@ -16,10 +16,11 @@ class Wine(models.Model):
 class Description(models.Model):
     name = models.ForeignKey(
         Wine,
-        related_name = "descriptions",
+        related_name = "description",
         on_delete = models.CASCADE,
     )
-    notes = models.TextField(max_length=600)
+    
+    notes = models.TextField(max_length=1000)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name.name}"
