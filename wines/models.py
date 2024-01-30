@@ -1,4 +1,5 @@
 from django.db import models
+from restaurant.models import Restaurant
 
 
 class Wine(models.Model):
@@ -8,6 +9,12 @@ class Wine(models.Model):
     grape = models.CharField(max_length=100)
     region = models.CharField(max_length=30)
     year = models.CharField(max_length=20)
+    restaurant = models.ForeignKey(
+        Restaurant,
+        related_name="restaurant_name",
+        on_delete=models.CASCADE,
+        null=True
+    )
 
     def __str__(self):
         return f"{self.name}"

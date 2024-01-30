@@ -10,7 +10,7 @@ class WineViewSet(viewsets.ModelViewSet):
     queryset = Wine.objects.all()
     serializer_class = WineSerializer
     authentication_classes = (TokenAuthentication,)
-    # permission_classes = ()
+    permission_classes = ()
 
 class DescriptionViewSet(viewsets.ModelViewSet):
     queryset = Description.objects.all()

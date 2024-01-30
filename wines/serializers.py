@@ -13,7 +13,8 @@ class WineSerializer(serializers.ModelSerializer):
             'name',
             'grape',
             'region',
-            'year'
+            'year',
+            'restaurant'
             )
 
 class DescriptionSerializer(serializers.ModelSerializer):
