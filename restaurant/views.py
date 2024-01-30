@@ -7,4 +7,6 @@ from rest_framework.authentication import TokenAuthentication
 class RestaurantViewSet(viewsets.ModelViewSet):
     queryset = Restaurant.objects.all()
     serializer_class = RestaurantSerializer
+    authentication_classes = (TokenAuthentication,)
+
 

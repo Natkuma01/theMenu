@@ -1,9 +1,9 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import RestaurantSerializer
+from .views import RestaurantViewSet
 
 router = DefaultRouter()
-router.register('restaurant', RestaurantSerializer, basename='restaurant')
+router.register('restaurant', RestaurantViewSet, basename='restaurant')
 
 
 urlpatterns = [
