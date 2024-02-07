@@ -7,10 +7,11 @@ export const basicSchema = yup.object().shape({
     password: yup
         .string()
         .min(5)
-        .matches(passwordRules,{message: "Please create a strnger password"})
+        .matches(passwordRules, 
+            {message: "Password needs at least 5 characters, 1 upper case, 1 lower case, 1 numeric digit"})
         .required("Required"),
-    confirmPassword: yup
-        .string()
-        .oneOf([yup.ref("password"), null, "Password must match"])
-        .required("Required"),
+    // confirmPassword: yup
+    //     .string()
+    //     .oneOf([yup.ref("password"), null, "Password must match"])
+    //     .required("Required"),
 })

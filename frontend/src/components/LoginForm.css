@@ -8,3 +8,6 @@ select.input-error {
 
 }
 
+button:disabled{
+    opacity: 0.35;
+}
