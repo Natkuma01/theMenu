@@ -3,7 +3,7 @@ import { basicSchema } from "../schemas/BasicSchemas"
 import "./LoginForm.css"
 import login_img from "../assets/login_img.jpg"
 
-function LoginForm() {
+function SignupForm() {
 
     const onSubmit = async (values, actions) => {
         console.log(values)
@@ -15,7 +15,8 @@ function LoginForm() {
     const { values, errors, touched, handleBlur, isSubmitting, handleChange, handleSubmit } = useFormik({
         initialValues: {
             username: "",
-            password: ""
+            password: "",
+            confirmedPassword: "",
         },
         validationSchema: basicSchema,
         onSubmit
@@ -28,11 +29,11 @@ function LoginForm() {
         <div className= "flex flex-row">
             <div className="basis-1/2 ml-5 mt-5"><img src={login_img} className="rounded-md shadow-md" /></div>
                 <div className="basis-1/2">
-                  <div className="grid grid-rows-4 gap-4 justify-items-stretch">
+                  <div className="grid grid-cols-3 grid-flow-rows gap-2 magic">
                     <div></div>
                         <form className="mx-10 my-5" onSubmit={handleSubmit} autoComplete="off">
-                        <div><p className="text-center">Sign in to your account</p></div>
-                        <div className="mt-3"><label htmlFor="username" >Username</label>
+                        <div className="col-span-1 magic"><p className="text-center">Create an account</p></div>
+                        <div className="col-span-1 mt-3 magic"><label htmlFor="username" >Username</label>
                         <div className="mt-1">
                         <input 
                         type="text" 
@@ -82,4 +83,4 @@ function LoginForm() {
         </div>
     )
 }
-export default LoginForm;
+export default SignupForm;

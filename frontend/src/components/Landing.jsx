@@ -1,5 +1,6 @@
 import React from 'react';
 import './Landing.css';
+import { Link } from "react-router-dom"
 
 const Landing = () => {
 
@@ -12,19 +13,12 @@ const Landing = () => {
     <div className="flux row-span-3">Menu</div>
     <div className="row-span-3">Help you to connect your inventory with your digital menu! - Coming Soon</div>
     </div>
-    <button 
-      type="button" 
-      className="button-8 mt-10"
-    >
-      Sign Up
-    </button>
-    <button 
-      type="button" 
-      className="button-8 mt-10"
-    >
-      Login
-    </button>
-
+    <Link to="/signup">
+    <button type="button" className="button-8 mt-10">Sign Up</button>
+    </Link>
+    <Link to="/login">
+    <button type="button" className="button-8 mt-10">Login</button>
+    </Link>
     </div>
     </div>
     </>
