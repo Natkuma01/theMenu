@@ -3,6 +3,8 @@ import Landing from "./components/Landing";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 import Dashboard from './components/Dashboard';
+import RestaurantForm from "./components/RestaurantForm"
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './App.css'
@@ -20,6 +22,8 @@ const App = () => {
         <Route exact path="/login" element={<LoginForm />} />
         <Route exact path="/signup" element={<SignupForm />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/restForm" element={<RestaurantForm />} />
+
         </Routes>
     </Router>
     </>
