@@ -2,15 +2,19 @@ import { useFormik } from "formik"
 import { basicSchema } from "../schemas/BasicSchemas"
 import "./LoginForm.css"
 import login_img from "../assets/login_img.jpg"
+import { useNavigate } from "react-router-dom"
 
 function LoginForm() {
 
+    const navigateTo = useNavigate()
 
     const onSubmit = async (values, actions) => {
         console.log(values)
         console.log(actions)
         await new Promise((resolve) => setTimeout(resolve, 1000));
         actions.resetForm()
+        
+
     }
 
     const { values, errors, touched, handleBlur, isSubmitting, handleChange, handleSubmit } = useFormik({
@@ -19,7 +23,11 @@ function LoginForm() {
             password: ""
         },
         validationSchema: basicSchema,
-        onSubmit
+        onSubmit: (values) => {
+            console.log("form submit")
+            console.log(values)
+            navigateTo("/dashboard")
+        }
     });
 
        console.log(errors); 

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import Landing from "./components/Landing";
-import Login from "./components/LoginForm";
-import Signup from "./components/SignupForm";
-// import Dashboard from './components/Dashboard';
+import LoginForm from "./components/LoginForm";
+import SignupForm from "./components/SignupForm";
+import Dashboard from './components/Dashboard';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './App.css'
@@ -17,15 +17,9 @@ const App = () => {
     <Router> 
       <Routes>
         <Route exact path="/" element={<Landing />} />
-        {/* <Route
-          path="private-route"
-          element={<PrivateRoute isAuthenticated={isAuthenticated} />}
-        /> */}
-        {/* <Route exact path="/login" element={
-        isAuthenticated ? (<Login />} />) : (
-          <Navigate to="private-route" replace />
-        ) /> */}
-        <Route exact path="/signup" element={<Signup />} />
+        <Route exact path="/login" element={<LoginForm />} />
+        <Route exact path="/signup" element={<SignupForm />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>
     </Router>
     </>

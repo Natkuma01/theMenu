@@ -1,14 +1,18 @@
 import { useFormik } from "formik"
 import { basicSchema } from "../schemas/BasicSchemas"
 import "./LoginForm.css"
+import { useNavigate } from "react-router-dom"
 import login_img from "../assets/login_img.jpg"
 
 function SignupForm() {
+
+    const navigateTo = useNavigate()
 
     const onSubmit = async (values, actions) => {
         console.log(values)
         console.log(actions)
         await new Promise((resolve) => setTimeout(resolve, 1000));
+        // set backend api here
         actions.resetForm()
     }
 
@@ -22,8 +26,12 @@ function SignupForm() {
             confirmPassword: "",
         },
         validationSchema: basicSchema,
-        onSubmit
-    });
+        onSubmit: (values) => {
+            console.log("form submit")
+            console.log(values)
+            navigateTo("/dashboard")
+    }
+});
 
        console.log(errors); 
 
