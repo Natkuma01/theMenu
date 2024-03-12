@@ -1,5 +1,5 @@
 import { useFormik } from "formik"
-import { basicSchema } from "../schemas/BasicSchemas"
+import * as yup from "yup";
 import "./LoginForm.css"
 import login_img from "../assets/login_img.jpg"
 import { useNavigate } from "react-router-dom"
@@ -8,12 +8,22 @@ function LoginForm() {
 
     const navigateTo = useNavigate()
 
+    const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
+
+    const loginSchema = yup.object().shape({
+        username: yup.string().required("Redquired"),
+        password: yup
+        .string()
+        .min(5)
+        .matches(passwordRules, 
+            {message: "Password needs at least 5 characters, 1 upper case, 1 lower case, 1 numeric digit"})
+        .required("Required")})
+
     const onSubmit = async (values, actions) => {
         console.log(values)
         console.log(actions)
         await new Promise((resolve) => setTimeout(resolve, 1000));
         actions.resetForm()
-        
 
     }
 
@@ -22,7 +32,7 @@ function LoginForm() {
             username: "",
             password: ""
         },
-        validationSchema: basicSchema,
+        validationSchema: loginSchema,
         onSubmit: (values) => {
             console.log("form submit")
             console.log(values)
@@ -41,7 +51,7 @@ function LoginForm() {
                     <div></div>
                         <form className="mx-10 my-5" onSubmit={handleSubmit} autoComplete="off">
                         <div><p className="text-center">Sign in to your account</p></div>
-                        <div className="mt-3"><label htmlFor="username" >Username</label>
+                        <div className="mt-3"><label htmlFor="username">Username</label>
                         <div className="mt-1">
                         <input 
                         type="text" 

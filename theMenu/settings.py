@@ -47,14 +47,8 @@ INSTALLED_APPS = [
     'restaurant',
     'rest_framework',
     'corsheaders',
-    # 'rest_framework.authtoken',
 ]
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticated',
-#     ]
-# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -93,8 +87,12 @@ WSGI_APPLICATION = 'theMenu.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'theMenu',
+        'USER': 'postgres',
+        'PASSWORD': 'Jebon171',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

@@ -1,5 +1,5 @@
 import { useFormik } from "formik"
-import { basicSchema } from "../schemas/BasicSchemas"
+import { signupSchema } from "../schemas/SignupSchema"
 import "./LoginForm.css"
 import { useNavigate } from "react-router-dom"
 import login_img from "../assets/login_img.jpg"
@@ -25,7 +25,7 @@ function SignupForm() {
             password: "",
             confirmPassword: "",
         },
-        validationSchema: basicSchema,
+        validationSchema: signupSchema,
         onSubmit: (values) => {
             console.log("form submit")
             console.log(values)
