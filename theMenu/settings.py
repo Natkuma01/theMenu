@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
+    'http://localhost:8081',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -91,7 +92,7 @@ DATABASES = {
         'NAME': 'theMenu',
         'USER': 'postgres',
         'PASSWORD': 'Jebon171',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
