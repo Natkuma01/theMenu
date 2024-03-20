@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
+
 import './Landing.css';
 import { Link } from "react-router-dom"
+import AuthContext from '../utils/AuthContext';
 
 const Landing = () => {
+
+  let {name} = useContext(AuthContext)
 
   return (
     <>
@@ -13,6 +19,7 @@ const Landing = () => {
     <div className="flux row-span-3">Menu</div>
     <div className="row-span-3">Help you to connect your inventory with your digital menu! - Coming Soon</div>
     </div>
+    <p>Hello, {name} </p>
     <Link to="/signup">
     <button type="button" className="button-8 mt-10">Sign Up</button>
     </Link>

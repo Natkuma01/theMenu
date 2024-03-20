@@ -4,29 +4,31 @@ import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 import Dashboard from './components/Dashboard';
 import RestaurantForm from "./components/RestaurantForm"
-
+import PrivateRoutes from './utils/PrivateRoutes'
+import { AuthProvider } from './utils/AuthContext'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './App.css'
 
 const App = () => {
 
-    // useEffect(()=> {
-    //   console.log(import.meta.env.VITE_API_URL)
-    // }, [])
   return (
-    <>
     <Router> 
+      <AuthProvider>
       <Routes>
-        <Route exact path="/" element={<Landing />} />
-        <Route exact path="/login" element={<LoginForm />} />
-        <Route exact path="/signup" element={<SignupForm />} />
-        <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/restForm" element={<RestaurantForm />} />
+        <Route path="/" element={<Landing />}/>
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupForm />} />
 
+        <Route element={<PrivateRoutes/>}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/restForm" element={<RestaurantForm />} />
+        </Route>
+
+        
         </Routes>
+        </AuthProvider>
     </Router>
-    </>
   )
 }
 

@@ -3,9 +3,9 @@ import * as yup from "yup";
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
 export const signupSchema = yup.object().shape({
-    username: yup.string().required("Redquired"),
-    firstname: yup.string().required("Redquired"),
-    lastname: yup.string().required("Redquired"),
+    username: yup.string().required("Required"),
+    firstname: yup.string().required("Required"),
+    lastname: yup.string().required("Required"),
     email: yup.string().email("Please enter a valid email").required("Required"),
     password: yup
         .string()

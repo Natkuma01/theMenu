@@ -1,9 +1,9 @@
 from rest_framework import viewsets
 from .models import Wine, Description
-from .serializers import WineSerializer, DescriptionSerializer, UserSerializer
+from .serializers import WineSerializer, DescriptionSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 
 class WineViewSet(viewsets.ModelViewSet):
@@ -17,10 +17,10 @@ class DescriptionViewSet(viewsets.ModelViewSet):
     serializer_class = DescriptionSerializer
     authentication_classes = (TokenAuthentication,)
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    authentication_classes = ()
-    permission_classes = ()
+# class UserViewSet(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+#     authentication_classes = ()
+#     permission_classes = ()
 
 

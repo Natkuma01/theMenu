@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik, Field } from "formik";
 import { useNavigate } from "react-router-dom";
+import { restaurantSchema } from "../schemas/RestaurantSchema";
 
 function RestaurantForm() {
 
@@ -17,9 +18,12 @@ function RestaurantForm() {
     const { values, handleBlur, isSubmitting, handleChange, handleSubmit } = useFormik({
         initialValues: {
             restaurantName: "",
-            restaurantAddress: ""
+            address: "",
+            city: "",
+            states: "",
+            zipCode: "",
         },
-        validationSchema: null,
+        validationSchema: restaurantSchema,
         onSubmit: (values) => {
             console.log("form submit")
             console.log(values)
@@ -35,6 +39,7 @@ function RestaurantForm() {
             <input 
             type="text"
             id="restaurantName"
+            name="restaurantName"
             placeholder="Enter restaurant name"
             onChange={handleChange}
             onBlur={handleBlur}
@@ -47,6 +52,7 @@ function RestaurantForm() {
             <input 
             type="text"
             id="address"
+            name="address"
             placeholder="Street Name, Apartment"
             onChange={handleChange}
             onBlur={handleBlur}
@@ -58,7 +64,8 @@ function RestaurantForm() {
             <label>City</label>
             <input 
             type="text"
-            id="address"
+            id="city"
+            name="city"
             onChange={handleChange}
             onBlur={handleBlur}
             values={values.city}
@@ -68,7 +75,8 @@ function RestaurantForm() {
         <div>
             <label>States</label>
             <input
-            id="address"
+            id="states"
+            name="states"
             onChange={handleChange}
             onBlur={handleBlur}
             values={values.address}
@@ -79,6 +87,7 @@ function RestaurantForm() {
             <label>Zip Code</label>
             <input
             id="zipCode"
+            name="zipCode"
             type="text"
             pattern="\d{4}"
             onChange={handleChange}

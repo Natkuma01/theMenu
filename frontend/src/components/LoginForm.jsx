@@ -3,8 +3,12 @@ import * as yup from "yup";
 import "./LoginForm.css"
 import login_img from "../assets/login_img.jpg"
 import { useNavigate } from "react-router-dom"
+import AuthContext from "../utils/AuthContext"
+import React, {useContext} from "react"
 
 function LoginForm() {
+
+    const {loginUser} = useContext(AuthContext)
 
     const navigateTo = useNavigate()
 
@@ -19,13 +23,15 @@ function LoginForm() {
             {message: "Password needs at least 5 characters, 1 upper case, 1 lower case, 1 numeric digit"})
         .required("Required")})
 
-    const onSubmit = async (values, actions) => {
-        console.log(values)
-        console.log(actions)
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        actions.resetForm()
 
-    }
+    
+    // const onSubmit = async (values, actions) => {
+    //     console.log(values)
+    //     console.log(actions)
+    //     await new Promise((resolve) => setTimeout(resolve, 1000));
+    //     actions.resetForm()
+
+    // }
 
     const { values, errors, touched, handleBlur, isSubmitting, handleChange, handleSubmit } = useFormik({
         initialValues: {
@@ -33,12 +39,14 @@ function LoginForm() {
             password: ""
         },
         validationSchema: loginSchema,
-        onSubmit: (values) => {
-            console.log("form submit")
-            console.log(values)
+        onSubmit: 
+        // (values) => {
+            // console.log("form submit")
+            // console.log(values)
             navigateTo("/dashboard")
         }
-    });
+    // }
+    );
 
        console.log(errors); 
 
@@ -49,7 +57,7 @@ function LoginForm() {
                 <div className="basis-1/2">
                   <div className="grid grid-rows-4 gap-4 justify-items-stretch">
                     <div></div>
-                        <form className="mx-10 my-5" onSubmit={handleSubmit} autoComplete="off">
+                        <form className="mx-10 my-5" onSubmit={loginUser} autoComplete="off">
                         <div><p className="text-center">Sign in to your account</p></div>
                         <div className="mt-3"><label htmlFor="username">Username</label>
                         <div className="mt-1">
