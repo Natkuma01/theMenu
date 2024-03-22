@@ -8,6 +8,8 @@ import PrivateRoutes from './utils/PrivateRoutes'
 import { AuthProvider } from './utils/AuthContext'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+
+import LoginPage from "./components/LoginPage";
 import './App.css'
 
 const App = () => {
@@ -17,10 +19,11 @@ const App = () => {
       <AuthProvider>
       <Routes>
         <Route path="/" element={<Landing />}/>
-        <Route path="/login" element={<LoginForm />} />
+        {/* <Route path="/login" element={<LoginForm />} /> */}
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupForm />} />
 
-        <Route element={<PrivateRoutes/>}>
+        <Route element={<PrivateRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/restForm" element={<RestaurantForm />} />
         </Route>

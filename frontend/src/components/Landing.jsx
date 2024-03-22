@@ -17,7 +17,7 @@ const Landing = () => {
     <div className="grid grid-rows-3">
     <div className="neon row-span-3">The</div>
     <div className="flux row-span-3">Menu</div>
-    <div className="row-span-3">Help you to connect your inventory with your digital menu! - Coming Soon</div>
+    <div className="row-span-3">Connect your inventory with your digital menu! - Coming Soon</div>
     </div>
     <p>Hello, {name} </p>
     <Link to="/signup">
