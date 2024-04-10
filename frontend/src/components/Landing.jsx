@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
-import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";
+
 
 import './Landing.css';
 import { Link } from "react-router-dom"
@@ -20,7 +19,7 @@ const Landing = () => {
     <div className="row-span-3">Connect your inventory with your digital menu! - Coming Soon</div>
     </div>
     <p>Hello, {name} </p>
-    <Link to="/signup">
+    <Link to="/register">
     <button type="button" className="button-8 mt-10">Sign Up</button>
     </Link>
     <Link to="/login">

@@ -1,9 +1,8 @@
-import { createContext, useState, useEffect } from 'react'
+import { createContext, useState } from 'react'
 
 
 // Provider provide the information and consumer received the information
 const AuthContext = createContext()
-
 
 
 export const AuthProvider = ({children}) => {
@@ -19,24 +18,30 @@ export const AuthProvider = ({children}) => {
                 'Content-Type': 'application/json'
             },
             body:JSON.stringify({
-                'username': e.target.username.value, 
+                'email': e.target.email.value, 
                 'password': e.target.password.value})
         })
         const data = await response.json()
         if(response.status === 200){
             setAuthTokens(data)
             setUser(data.access)
+            localStorage.setItem('authTokens', JSON.stringify(data))
         }
         else{
-            alert("something wrong")
+            alert("Your email & password are invalid.")
         }
-
     }
 
+    const logoutUser = () => {
+        setAuthTokens(null)
+        setUser(null)
+        localStorage.removeItem('authTokens')
+    }
 
     const contextData = {
         user: user,
-        loginUser:loginUser
+        loginUser:loginUser,
+        logoutUser:logoutUser
     }
 
     return(

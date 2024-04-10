@@ -9,6 +9,7 @@ import { AuthProvider } from './utils/AuthContext'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
+import Register from "./components/Register";
 import LoginPage from "./components/LoginPage";
 import './App.css'
 
@@ -19,9 +20,8 @@ const App = () => {
       <AuthProvider>
       <Routes>
         <Route path="/" element={<Landing />}/>
-        {/* <Route path="/login" element={<LoginForm />} /> */}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/register" element={<Register />} />
 
         <Route element={<PrivateRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
