@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-
+import { jwtDecode } from "jwt-decode"
 
 // Provider provide the information and consumer received the information
 const AuthContext = createContext()
@@ -7,8 +7,8 @@ const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
 
-    const [authTokens, setAuthTokens] = useState(null)
-    const [user, setUser] = useState(null)
+    const [authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
+    const [user, setUser] = useState(()=> localStorage.getItem('authTokens') ? jwtDecode(localStorage.getItem('authTokens')) : null)
 
     const loginUser = async (e) =>{
         e.preventDefault()
@@ -24,7 +24,7 @@ export const AuthProvider = ({children}) => {
         const data = await response.json()
         if(response.status === 200){
             setAuthTokens(data)
-            setUser(data.access)
+            setUser(jwtDecode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
         }
         else{

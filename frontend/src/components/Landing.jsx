@@ -7,8 +7,6 @@ import AuthContext from '../utils/AuthContext';
 
 const Landing = () => {
 
-  let {name} = useContext(AuthContext)
-
   return (
     <>
     <div className="background">
@@ -18,7 +16,6 @@ const Landing = () => {
     <div className="flux row-span-3">Menu</div>
     <div className="row-span-3">Connect your inventory with your digital menu! - Coming Soon</div>
     </div>
-    <p>Hello, {name} </p>
     <Link to="/register">
     <button type="button" className="button-8 mt-10">Sign Up</button>
     </Link>

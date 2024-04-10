@@ -8,5 +8,5 @@ export const restaurantSchema = yup.object().shape({
     zipCode: yup.
         string().
         required("Required").
-        matches(/^[0-9]{4}$/, "Please indicate a valid zipcode"),
+        matches(/^\d{5}$/, "Please indicate a valid zipcode"),
 })
